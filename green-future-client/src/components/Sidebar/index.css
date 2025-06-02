@@ -1,0 +1,124 @@
+/* RentalType.css */
+.rental-type-selector {
+  display: flex;
+  justify-content: left;
+  width: 80%;
+  margin-top: 30px;
+  margin-left: 150px;
+  border-radius: 8px 8px 0 0;
+}
+
+.rental-option-group {
+  display: flex;
+  background-color: white;
+  border: none;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+
+  
+}
+
+.rental-title {
+  padding: 12px 24px;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px 8px 0 0;
+  border: none;
+}
+
+
+.divider {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 8px 0;
+}
+
+/* Hiệu ứng active */
+.rental-title.active {
+  background-color: #39c47f;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .rental-option-group {
+    flex-direction: column;
+  }
+  
+  .divider {
+    width: 100%;
+    height: 1px;
+  }
+}
+
+
+.search-form {
+  display: flex;
+  gap: 20px;
+  background-color: rgb(255, 255, 255);
+  border-top: none;
+  margin: 0 auto;
+  height: 100px;
+  width: 100%;
+  /* margin-left: 5px; */
+  /* margin-right: 5px; */
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-bottom: 125px;
+
+}
+
+h4 {
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: rgb(86, 85, 85);
+}
+.location-select{
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  width: 175px;
+}
+.date-input, .time-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  width: 120px;
+}
+
+.datetime-inputs {
+  display: flex;
+}
+.date-input{
+  margin-right: 5px;
+}
+
+.search-button {
+  background-color: #22b44c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  height: 42px;
+  width: 400px;
+  margin-top: 45px;
+}
+
+.search-button:hover {
+  background-color: #25bf51;
+}
