@@ -6,6 +6,8 @@ import MainLayout from "./components/layout-main";
 import Rentalday from "./pages/rental-day";
 import Rentalmonth from "./pages/rental-month";
 import Rentalyear from "./pages/rental-year";
+import Cars from "./pages/book-car/BookCars";
+import BookCars from "./pages/book-car/BookCars";
 
 function App() {
   const location = useLocation();
@@ -25,9 +27,11 @@ function App() {
 
         <Route element={<MainLayout />}>
           {/* <Route path="/" element={<Rentalday/>} /> */}
-          <Route path="/" element={<Rentalday />} />
-          <Route path="/rental/month" element={<Rentalmonth />} />
-          <Route path="/rental/year" element={<Rentalyear />} />
+          <Route path="/" element={<Rentalday />} />{" "}
+          <Route path="/thue-xe-tu-lai" element={<BookCars />}>
+            <Route path="theo-thang" element={<Rentalmonth />} />
+            <Route path="theo-nam" element={<Rentalyear />} />
+          </Route>
         </Route>
       </Routes>
     </div>

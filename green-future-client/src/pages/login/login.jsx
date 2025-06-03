@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { message } from "antd";
 import { login } from "../../api/auth";
 
-const CarLogin = () => {
+const CarLogin = ({ oncancel }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [currState, setCurrState] = useState("Đăng nhập");
@@ -214,7 +214,7 @@ const CarLogin = () => {
           alt="Thuê xe dễ dàng"
           className="car-image"
         />
-        <button className="close-btn" onClick={() => navigate("/")}>
+        <button className="close-btn" onClick={oncancel}>
           <i className="fa-solid fa-xmark"></i>
         </button>
       </div>
