@@ -5,7 +5,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { message } from "antd";
 import { login } from "../../api/auth";
 
-const CarLogin = ({ oncancel }) => {
+const CarLogin = ({ oncancel,onLoginSuccess }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [currState, setCurrState] = useState("Đăng nhập");
@@ -19,6 +19,7 @@ const CarLogin = ({ oncancel }) => {
       if (response) {
         console.log("Đăng nhập thành công");
         message.success("Đăng nhập thành công");
+         if (onLoginSuccess) onLoginSuccess();
         navigate("/");
       } else {
         console.log("Đăng nhập thất bại");

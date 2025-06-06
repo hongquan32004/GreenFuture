@@ -1,0 +1,503 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #ffffff; 
+}
+.gf-home {
+    width: 100%;
+    color: rgb(25, 17, 17);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    top: 0;
+    z-index: 100;
+    background-color: black;
+    margin: 0;
+    
+  }
+  
+  .gf-home-container{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    /* max-width: 1200px; */
+    margin: 0 auto;
+    padding: 0 5rem;
+  }
+  
+  /* Logo styles */
+  .gf-logo-home img{
+    width: 185px;
+    height: 45px; 
+  }
+  .gf-nav-home{
+   margin-left: -500px;
+  }
+  /* Navigation styles */
+  .gf-nav-menu-home {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .gf-nav-item-home {
+    cursor: pointer;
+    font-weight: 500;
+    padding: 1rem 0;
+    position: relative;
+    transition: color 0.3s;
+    color: white;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  
+  .gf-nav-item:hover {
+    color: #11f17d;
+  }
+  
+  
+  .gf-nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+  }
+  
+  /* User info styles */
+  .gf-user-info-home {
+    display: flex;
+    align-items: center;
+    gap: 2rem;  
+  }
+  
+ 
+  .gf-user-info-home button {
+    padding: 12px 20px;
+    border: 1px solid #00d287; 
+    border-radius: 40px;
+    background-color: white; 
+    color: #000000; 
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease; 
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+  }
+  .gf-user-info-home button i{
+    margin-right: 5px; 
+    size: 10px;
+  }
+  
+  .gf-user-info-home button:hover {
+    
+    background-color:  #08e966; 
+  }
+  
+  
+  .gf-user-info-home button:active {
+    transform: scale(0.98); 
+  }
+
+
+  /* New item styles */
+.gf-nav-item.new-item {
+  color: black; 
+  position: relative;
+}
+.gf-nav-item.new-item:hover {
+  color:  #00d287; 
+  position: relative;
+}
+
+.gf-nav-item.new-item::after {
+  content: 'NEW';
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  font-size: 10px;
+  background: #e5d3d3;
+  color: rgb(255, 47, 0);
+  padding: 2px 4px;
+  border-radius: 10px;
+  line-height: 1;
+}
+
+/* Home banner styles */
+.gf-home-banner img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+.gf-home-description{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+}
+.gf-home-text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  z-index: 2;
+  max-width: 90%;
+  margin-top: -70px;
+}
+
+.gf-home-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  width: 1200px;
+  max-width: 700px;
+  margin: auto;
+  color: #07F668;
+  line-height: 1.2;
+            letter-spacing: 1px;
+ 
+}
+
+.gf-home-subtitle {
+  font-size: 30px;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  width: 1200px;
+}
+
+.gf-home-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.gf-btn-primary, .gf-btn-secondary {
+  padding: 18px 40px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+}
+
+.gf-btn-primary {
+  background-color: #07F668;
+  color: #000;
+}
+
+.gf-btn-secondary {
+  background-color: white;
+  color: #000000;
+}
+.gf-btn-secondary:hover {
+  background-color: #07F668;
+  color: #000;
+}
+
+/* SelfDriveRental.css */
+.self-drive-rental {
+  background-color: #ffffff; 
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.self-drive-rental__content {
+  max-width: 1100px;
+  text-align: center;
+}
+
+.self-drive-rental__title {
+  margin-top:50px;
+  font-family: sans-serif;
+  font-size: 40px;
+  color: #000000;
+}
+
+.self-drive-rental__description {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #000000;
+  margin-bottom: 40px;
+  margin-top: -30px;
+}
+
+
+.self-drive-rental__cta-button {
+  padding: 12px 40px;
+  border-radius: 40px;
+  background-color: white; 
+  color: #000000; 
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease; 
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  border: 1px solid #0e0e0e;
+}
+
+.self-drive-rental__cta-button:hover {
+  background-color: #07F668; /* Neon green underline */
+  transition: transform 0.3s ease;
+}
+
+.self-drive-rental__cta-button:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gf-home-title {
+    font-size: 32px;
+  }
+  
+  .gf-home-subtitle {
+    font-size: 16px;
+  }
+  
+  .gf-home-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .gf-nav-menu-home {
+    display: none; /* Ẩn menu trên mobile */
+  }
+}
+
+
+/* VinFastModels.css */
+.vinfast-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.models-container {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  cursor: grab;
+  scrollbar-width: none; /* Firefox */
+}
+
+.models-container::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.models-container.grabbing {
+  cursor: grabbing;
+  scroll-snap-type: none;
+  user-select: none;
+}
+
+.model-card {
+  min-width: 85%;
+  scroll-snap-align: start;
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  flex: 0 0 auto;
+}
+
+.model-name {
+  font-size: 1.5rem;
+  color: #07F668;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.model-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.model-specs li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 1rem;
+}
+
+.model-specs li strong {
+  color: #333;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dot.active {
+  background: #07F668;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .model-card {
+    min-width: 90%;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* Footer.css */
+.gf-site-footer {
+  background-color: #ffffff; /* màu nền footer */
+  color: white;
+  padding: 40px;
+  clip-path: polygon(
+    0 0,
+    calc(100% - 200px) 0,   /* vát góc phải trên */
+    100% 100px,
+    100% 100%,
+    0% 100%
+  );
+  border: 2px solid #ffffff; /* Viền chung */
+  box-shadow: 0 0 0 10px #ffffff; /* tạo viền nhẹ quanh phần cắt */
+  border-radius: 40px;
+}
+
+.gf-site-footer {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 40px 60px;
+}
+
+.gf-footer-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gf-footer-booking,
+.gf-footer-info,
+.gf-footer-contact{
+  margin-top: 50px;
+
+}
+
+.gf-footer-logo img {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-left: -350px;
+}
+.gf-footer-logo-btc img{
+  width: 150px;
+  margin-left: -350px;
+}
+
+.gf-company-details p {
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.gf-company-details{
+  text-align: left;
+  width: 500px;
+}
+
+.gf-footer-booking h3,
+.gf-footer-info h3,
+.gf-footer-contact h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.gf-footer-booking ,
+.gf-footer-info ,
+.gf-footer-contact {
+  text-align: left;
+}
+
+.gf-footer-links p {
+  margin: 5px 0;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.gf-footer-links p:hover {
+  /* text-decoration: underline; */
+  color: #00d287;
+}
+
+.gf-social-icons {
+  gap: 8px;
+  margin-top: 100px;
+}
+.gf-social-icons img {
+  width: 25px;
+  height: 25px;
+  padding: 5px;
+}
+
+.gf-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #333;
+  padding-top: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.gf-copyright p,
+.gf-terms p {
+  font-size: 14px;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .gf-footer-main {
+    flex-direction: column;
+  }
+
+  .gf-footer-about,
+  .gf-footer-booking,
+  .gf-footer-info,
+  .gf-footer-contact {
+    margin-bottom: 20px;
+  }
+
+  .gf-footer-bottom {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
