@@ -43,7 +43,7 @@ const Header = () => {
           <button onClick={handleShowlogin} className="gf-login-btn">
             <i className="fa fa-user-circle" aria-hidden="true"></i>
             Đăng nhập
-          </button>
+          </button> 
         </div>
       </div>
       {showLogin && (

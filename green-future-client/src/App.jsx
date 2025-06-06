@@ -10,16 +10,6 @@ import Cars from "./pages/book-car/BookCars";
 import BookCars from "./pages/book-car/BookCars";
 
 function App() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken");
-    const initialPath = location.pathname;
-    if (!accessToken && initialPath !== "/login") {
-      navigate("/login", { replace: true });
-    }
-  }, [location.pathname, navigate]);
-
   return (
     <div className="app">
       <Routes>
