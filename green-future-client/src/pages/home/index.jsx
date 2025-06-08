@@ -44,21 +44,22 @@ const Home = () => {
   const handleLoginSuccess = () => {
     setIsLoggedIn(true);
     setShowLogin(false);
+    setOpen(false);
     // message.success("Đăng nhập thành công");
   };
 
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken");
-    const initialPath = location.pathname;
+    // const initialPath = location.pathname;
     if (accessToken) {
       setIsLoggedIn(true);
     } else {
       setIsLoggedIn(false);
-      if (initialPath !== "/home") {
+      // if (initialPath !== "/home") {
         navigate("/home", { replace: true });
-      }
+      // }
     }
-  }, [location.pathname, navigate]);
+  }, []); //location.pathname, navigate
   return (
     <div>
       <header className="gf-home" ref={headerRef}>
@@ -93,21 +94,21 @@ const Home = () => {
                 Đăng nhập
               </button>
             ) : (
-              <button className="gf-login-btn-home" onClick={() => setOpen(!open)}>
+              <button className="gf-login-btn-home" onClick={() => setOpen((prev) => !prev)}>
                 <i className="fa fa-user-circle" aria-hidden="true"></i>
                 Chien Nguyen
               </button>
             )}
           </div>
           {isLoggedIn && open && (
-            <div className="gf-user-dropdown">
-              <div className="gf-user-option">
+            <div className="gf-user-dropdown-home">
+              <div className="gf-user-option-home" onClick={() => navigate("/account")}>
                 <i className="fa fa-clipboard"></i> Đơn hàng của tôi
               </div>
-              <div className="gf-user-option">
+              <div className="gf-user-option-home">
                 <i className="fa fa-user"></i> Tài khoản
               </div>
-              <div className="gf-user-option" onClick={handleLogout}>
+              <div className="gf-user-option-home" onClick={handleLogout}>
                 <i className="fa fa-sign-out"></i> Đăng xuất
               </div>
             </div>
