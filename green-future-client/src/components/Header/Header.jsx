@@ -89,10 +89,10 @@ const Header = () => {
 
           {isLoggedIn && open && (
             <div className="gf-user-dropdown">
-              <div className="gf-user-option">
+              <div className="gf-user-option" onClick={() => navigate("/account/my-oder")}>
                 <i className="fa fa-clipboard"></i> Đơn hàng của tôi
               </div>
-              <div className="gf-user-option">
+              <div className="gf-user-option" onClick={() => navigate("/account/account-info")}>
                 <i className="fa fa-user"></i> Tài khoản
               </div>
               <div className="gf-user-option" onClick={handleLogout}>

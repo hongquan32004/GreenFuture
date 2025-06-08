@@ -19,6 +19,7 @@ const CarLogin = ({ oncancel,onLoginSuccess }) => {
       if (response) {
         console.log("Đăng nhập thành công");
         message.success("Đăng nhập thành công");
+        localStorage.setItem("userId", response?.data?.userId);
          if (onLoginSuccess) onLoginSuccess();
         navigate("/");
       } else {
