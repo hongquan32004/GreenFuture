@@ -1,3 +1,4 @@
+
 .login-container {
   display: flex;
   background: white;
@@ -23,6 +24,7 @@
   margin: 1.5rem 0;
   color: #a0aec0;
   font-size: 0.875rem;
+
 }
 
 .divider::before,

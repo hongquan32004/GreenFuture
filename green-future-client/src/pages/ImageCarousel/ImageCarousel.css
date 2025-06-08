@@ -1,0 +1,58 @@
+.carousel-container {
+  width: 100%;
+  background-color: #ffffff;
+  margin-bottom: 40px;
+  margin-top: 50px;
+
+}
+
+.mySwiper {
+  padding-bottom: 50px;
+  padding-top: 30px;
+  height: 580px;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.car-slide {
+  background: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  color: #ffffff;
+  transition: transform 0.5s ease;
+  margin-top: 30px;
+}
+
+.car-slide img {
+  width: 90%;
+  border-radius: 20px;
+  transition: transform 0.5s ease;
+
+}
+
+.swiper-slide-active {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.swiper-pagination-bullet {
+  background: #1221ff;
+  opacity: 0.5;
+}
+.swiper-pagination {
+  bottom: 0px !important; /* Đặt vị trí của pagination */
+  text-align: center;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+
+
+
+
+/* Slide ở giữa được phóng to */
+.swiper-slide-active img {
+  transform: scale(1.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
