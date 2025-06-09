@@ -2,20 +2,20 @@ import React, { useState } from "react";
 import "./style.css";
 import CarList from "../../components/car-list";
 
-const Rentalyear = () => {
+const Rentalmonth = () => {
   const [location, setLocation] = useState("Hà Nội");
   const [pickupDate, setPickupDate] = useState("2025-05-03");
   const [pickupTime, setPickupTime] = useState("19:30");
-  const [returnDate, setReturnDate] = useState("2025-05-04");
-  const [returnTime, setReturnTime] = useState("19:30");
+  const [monthCount, setMonthCount] = useState(1);
+
 
   const handleDateChange = (e, setter) => {
     setter(e.target.value);
   };
   return (
     <div>
-      <div className="search-form">
-        <div className="form-section">
+      <div className="search-form-m">
+        <div className="form-section-m">
           <h4>Tỉnh/Thành phố</h4>
           <select
             value={location}
@@ -36,33 +36,26 @@ const Rentalyear = () => {
               type="date"
               value={pickupDate}
               onChange={(e) => handleDateChange(e, setPickupDate)}
-              className="date-input"
+              className="date-input-m"
             />
             <input
               type="time"
               value={pickupTime}
               onChange={(e) => setPickupTime(e.target.value)}
-              className="time-input"
+              className="time-input-m"
             />
           </div>
         </div>
 
-        <div className="form-section">
-          <h4>Ngày trả xe</h4>
-          <div className="datetime-inputs">
-            <input
-              type="date"
-              value={returnDate}
-              onChange={(e) => handleDateChange(e, setReturnDate)}
-              className="date-input"
-            />
-            <input
-              type="time"
-              value={returnTime}
-              onChange={(e) => setReturnTime(e.target.value)}
-              className="time-input"
-            />
-          </div>
+        <div className="form-description">
+          <h4>Số tháng</h4>
+          <input
+            type="number"
+            min="1"
+            value={monthCount}
+            onChange={(e) => setMonthCount(e.target.value)}
+            className="number-input"
+          />
         </div>
 
         <button className="search-button">Tìm kiếm xe</button>
@@ -72,4 +65,4 @@ const Rentalyear = () => {
   );
 };
 
-export default Rentalyear;
+export default Rentalmonth;

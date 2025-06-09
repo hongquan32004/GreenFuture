@@ -1,19 +1,15 @@
-.search-form {
+.search-form-m {
   display: flex;
-  gap: 20px;
   background-color: rgb(255, 255, 255);
   border-top: none;
   margin: 0 auto;
   height: 100px;
   width: 100%;
-  /* margin-left: 5px; */
-  /* margin-right: 5px; */
 }
 
-.form-section {
+.form-section-m {
   display: flex;
   flex-direction: column;
-  flex: 1;
   margin-bottom: 125px;
 
 }
@@ -31,17 +27,19 @@ h4 {
   font-size: 14px;
   font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   width: 175px;
+  
 }
-.date-input, .time-input {
+.date-input-m, .time-input-m{
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
   font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  width: 120px;
+  width: 200px;
+  margin-left: 8px;
 }
 
-.datetime-inputs {
+.datetime-inputs{
   display: flex;
 }
 .date-input{
@@ -62,4 +60,16 @@ h4 {
 
 .search-button:hover {
   background-color: #25bf51;
+}
+.form-description{
+  font-size: 14px;
+  color: rgb(86, 85, 85);
+}
+.number-input{
+  width: 140px;
+  text-align: left;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 12px;
+  margin-right: 10px;
 }
