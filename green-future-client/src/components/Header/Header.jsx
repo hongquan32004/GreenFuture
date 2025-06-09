@@ -10,7 +10,7 @@ const Header = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [showLogin, setShowLogin] = useState(false);
-  
+
   const [open, setOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -49,11 +49,11 @@ const Header = () => {
     }
   }, [location.pathname, navigate]);
 
-  return (
+  return ( 
     <header className="gf-header">
       <div className="gf-header-container">
         {/* Logo */}
-        <div className="gf-logo" onClick={() => navigate("/home")}>
+        <div className="gf-logo" onClick={() => navigate("/")}>
           <img src="/images/logo-greenfuture.png" alt="" />
         </div>
 
@@ -112,7 +112,10 @@ const Header = () => {
             initial={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.3 }}
           >
-            <CarLogin oncancel={cancelLogin} onLoginSuccess={handleLoginSuccess} />
+            <CarLogin
+              oncancel={cancelLogin}
+              onLoginSuccess={handleLoginSuccess}
+            />
           </motion.div>
         </div>
       )}

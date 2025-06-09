@@ -1,0 +1,46 @@
+/* RentalType.css */
+.rental-type-selector {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 8px 8px 0 0;
+}
+
+.rental-option-group {
+  display: flex;
+  background-color: white;
+  border: none;
+  overflow: hidden;
+  border-radius: 8px 8px 0 0;
+
+  
+}
+
+.rental-title {
+  padding: 12px 24px;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #333;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 8px 8px 0 0;
+  border: none;
+}
+
+
+.divider {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 8px 0;
+}
+
+/* Hiệu ứng active */
+.rental-title.active {
+  background-color: #39c47f;
+  color: white;
+}
+
+

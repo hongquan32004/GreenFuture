@@ -1,9 +1,9 @@
 .main-content{
-  background-color: rgb(120, 218, 248);
-  display: flex;
-  justify-content: left;
+  /* display: flex;
+  justify-content: left; */
   width: 80%;
-  margin-left: 150px;
-  text-align: center; 
-  height: 700px;
+  margin: auto;
+  /* text-align: center;  */
+  height: auto;
+  background: #f9fafb;
 }
