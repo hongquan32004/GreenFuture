@@ -8,26 +8,29 @@ import Pin from "../../assets/range_per_charge.05d0b2b9.svg";
 import Vali from "../../assets/trunk_capacity.2eb533d8.svg";
 import { useNavigate } from "react-router-dom";
 
-const CarList = () => {
+const CarList = ({ cars = [] }) => {
   const [carModel, setModel] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(
-          `${import.meta.env.VITE_APP_URL_FE_PUBLIC}/car-models`
-        );
-        setModel(res.data?.data || []);
-      } catch (error) {
-        console.error(error);
-        message.error("Không lấy được dữ liệu!!!");
-      }
-    };
-    fetchData();
-  }, []);
+    if (cars.length == 0) {
+      const fetchData = async () => {
+        try {
+          const res = await axios.get(
+            `${import.meta.env.VITE_APP_URL_FE_PUBLIC}/car-models`
+          );
+          setModel(res.data?.data || []);
+        } catch (error) {
+          console.error(error);
+          message.error("Không lấy được dữ liệu!!!");
+        }
+      };
+      fetchData();
+    }
+  }, [cars]);
+  const listToRender = cars.length > 0 ? cars : carModel;
   return (
     <div className="car-list" style={{ color: "black" }}>
-      {carModel.slice(0, 9).map((item, index) => (
+      {listToRender.slice(0, 9).map((item, index) => (
         <div
           className="car-item"
           key={index}
@@ -37,7 +40,9 @@ const CarList = () => {
             <div className="absolute">
               <div className="gap-1">
                 <div className="c-hint">Miễn phí sạc</div>
-                <div className="text-cs">Hết xe</div>
+                <div className="text-cs">
+                  {item?.available ? "Hết xe" : "Còn xe"}
+                </div>
               </div>
             </div>
             <img src={item?.imageUrls?.[0]} alt="" />
