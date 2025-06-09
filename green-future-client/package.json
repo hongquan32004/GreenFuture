@@ -20,6 +20,7 @@
     "react-datepicker": "^8.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.6.1",
+    "sass": "^1.89.1",
     "swiper": "^11.2.8"
   },
   "devDependencies": {

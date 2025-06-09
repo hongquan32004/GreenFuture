@@ -5,11 +5,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { message } from "antd";
 import { login } from "../../api/auth";
 
-const CarLogin = ({ oncancel,onLoginSuccess }) => {
+const CarLogin = ({ oncancel, onLoginSuccess }) => {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [currState, setCurrState] = useState("Đăng nhập");
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const onFinish = async (e) => {
@@ -20,13 +19,13 @@ const CarLogin = ({ oncancel,onLoginSuccess }) => {
         console.log("Đăng nhập thành công");
         message.success("Đăng nhập thành công");
         localStorage.setItem("userId", response?.data?.userId);
-         if (onLoginSuccess) onLoginSuccess();
+        if (onLoginSuccess) onLoginSuccess();
         navigate("/");
       } else {
         console.log("Đăng nhập thất bại");
         message.error("Đăng nhập thất bại!!!");
       }
-      console.log(response);
+      console.log(response?.data?.userId);
     } catch (error) {
       console.error(error);
       message.error("Đăng nhập thất bại!!!");
