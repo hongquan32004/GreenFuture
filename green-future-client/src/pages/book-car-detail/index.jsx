@@ -3,6 +3,10 @@ import "./style.scss";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/thumbs";
 import Car from "../../assets/car-type.495bde21.svg";
 import People from "../../assets/no_of_seat.b5c472ab.svg";
 import Pin from "../../assets/range_per_charge.05d0b2b9.svg";
@@ -14,7 +18,8 @@ import Banh from "../../assets/icon16-detail-wheel_drive.svg";
 
 const BookCarDetail = () => {
   const { id } = useParams();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,7 +37,38 @@ const BookCarDetail = () => {
   return (
     <div className="gf-container" style={{ color: "black" }}>
       <div className="c-detail-box">
-        <div className="c-detail-box__left"></div>
+        <div className="c-detail-box__left">
+          {data?.imageUrls && data.imageUrls.length > 0 && (
+            <div className="car-gallery">
+              <Swiper
+                spaceBetween={10}
+                thumbs={{ swiper: thumbsSwiper }}
+                modules={[Thumbs]}
+                className="main-gallery"
+              >
+                {data?.imageUrls.map((img, index) => (
+                  <SwiperSlide key={index}>
+                    <img src={img} alt={`car-${index}`} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              <Swiper
+                onSwiper={setThumbsSwiper}
+                spaceBetween={10}
+                slidesPerView={6}
+                watchSlidesProgress={true}
+                className="thumb-gallery"
+              >
+                {data?.imageUrls.map((img, index) => (
+                  <SwiperSlide key={index}>
+                    <img src={img} alt={`thumb-${index}`} />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          )}
+        </div>
         <div className="c-detail-box__right">
           <div className="c-detail-box__row">
             <h1 className="c-detail-title">{data?.name}</h1>
@@ -253,6 +289,7 @@ const BookCarDetail = () => {
             </div>
           </div>
         </div>
+        <div className="col-lg-4"></div>
       </div>
     </div>
   );

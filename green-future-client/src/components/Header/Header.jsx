@@ -75,10 +75,31 @@ const Header = () => {
 
         {/* User info */}
         <div className="gf-user-info">
-          <button onClick={handleShowlogin} className="gf-login-btn">
-            <i className="fa fa-user-circle" aria-hidden="true"></i>
-            Đăng nhập
-          </button>
+          {!isLoggedIn ? (
+            <button onClick={handleShowlogin} className="gf-login-btn">
+              <i className="fa fa-user-circle" aria-hidden="true"></i>
+              Đăng nhập
+            </button>
+          ) : (
+            <button className="gf-login-btn" onClick={() => setOpen(!open)}>
+              <i className="fa fa-user-circle" aria-hidden="true"></i>
+              Chien Nguyen
+            </button>
+          )}
+
+          {isLoggedIn && open && (
+            <div className="gf-user-dropdown">
+              <div className="gf-user-option" onClick={() => navigate("/account/my-oder")}>
+                <i className="fa fa-clipboard"></i> Đơn hàng của tôi
+              </div>
+              <div className="gf-user-option" onClick={() => navigate("/account/account-info")}>
+                <i className="fa fa-user"></i> Tài khoản
+              </div>
+              <div className="gf-user-option" onClick={handleLogout}>
+                <i className="fa fa-sign-out"></i> Đăng xuất
+              </div>
+            </div>
+          )}
         </div>
       </div>
 

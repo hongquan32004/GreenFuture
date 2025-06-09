@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700&display=swap');
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   padding: 0;
@@ -76,6 +78,34 @@ body {
     align-items: center;
     gap: 2rem;  
   }
+  .gf-user-dropdown-home {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1000;
+  min-width: 250px;
+  font-weight: 500;
+  margin-right: 80px;
+  margin-top: -20px;
+}
+
+.gf-user-option-home {
+  padding: 5px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.gf-user-option-home:hover {
+  background-color: #f0f0f0;
+}
   
  
   .gf-user-info-home button {
