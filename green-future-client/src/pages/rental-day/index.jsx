@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import "./style.css";
 import CarList from "../../components/car-list";
 import { message } from "antd";
-import { get, getSearch } from "../../utils/axios-http/axios-http";
+import { get, getSearch, post } from "../../utils/axios-http/axios-http";
 
 const Rentalday = () => {
   const [location, setLocation] = useState("Hà Nội");
-  const [pickupDate, setPickupDate] = useState("2025-05-03");
+  const [pickupDate, setPickupDate] = useState("2025-05-04");
   const [pickupTime, setPickupTime] = useState("19:30");
-  const [returnDate, setReturnDate] = useState("2025-05-04");
+  const [returnDate, setReturnDate] = useState("2025-06-04");
   const [returnTime, setReturnTime] = useState("19:30");
   const [car, setCar] = useState([]);
 
@@ -18,14 +18,15 @@ const Rentalday = () => {
 
   const handleSearchCar = async () => {
     try {
-      const res = await getSearch("cars/available", {
+      const res = await post("cars/available", {
         city: location,
         pickupTime: `${pickupDate}T${pickupTime}:00`,
         returnTime: `${returnDate}T${returnTime}:00`,
         rentalType: "daily",
       });
-      if (res.status === 200 && res.data.data) {
-        setCar(res?.data.data || []);
+      if (res?.data) {
+        setCar(res?.data || []);
+        message.success("Tìm kiếm thành công!!!");
       }
     } catch (error) {
       console.error(error);
@@ -84,7 +85,6 @@ const Rentalday = () => {
             />
           </div>
         </div>
-
         <button className="search-button" onClick={handleSearchCar}>
           Tìm kiếm xe
         </button>

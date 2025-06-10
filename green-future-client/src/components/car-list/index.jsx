@@ -40,19 +40,36 @@ const CarList = ({ cars = [] }) => {
             <div className="absolute">
               <div className="gap-1">
                 <div className="c-hint">Miễn phí sạc</div>
-                <div className="text-cs">
-                  {item?.available ? "Hết xe" : "Còn xe"}
+                <div
+                  className="text-cs"
+                  style={{
+                    display:
+                      cars.length > 0 && !item?.available ? "block" : "none",
+                  }}
+                >
+                  {cars.length > 0 ? (item?.available ? "" : "Hết xe") : ""}
                 </div>
               </div>
             </div>
-            <img src={item?.imageUrls?.[0]} alt="" />
+            <img
+              src={cars.length > 0 ? item?.mainImage : item?.imageUrls?.[0]}
+              alt=""
+            />
           </div>
           <div className="car-info">
             <div className="bg-white">
               <div className="item-center">
                 <div className="font-normal">Chỉ từ</div>
-                <div className="font-black">{item?.basePricePerDay}</div>
-                <div className="font-semibold">VNĐ/ngày</div>
+                <div className="font-black">
+                  {new Intl.NumberFormat("vi-VN", {
+                    style: "currency",
+                    currency: "VND",
+                    maximumFractionDigits: 0,
+                  }).format(
+                    cars.length > 0 ? item?.basePrice : item?.basePricePerDay
+                  )}
+                </div>
+                <div className="font-semibold">/ngày</div>
               </div>
             </div>
             <div className="info-detail">

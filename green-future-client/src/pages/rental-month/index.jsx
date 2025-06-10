@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./style.css";
 import CarList from "../../components/car-list";
+import { post } from "../../utils/axios-http/axios-http";
+import { message } from "antd";
 
 const Rentalmonth = () => {
   const [location, setLocation] = useState("Hà Nội");
@@ -8,9 +10,28 @@ const Rentalmonth = () => {
   const [pickupTime, setPickupTime] = useState("19:30");
   const [returnDate, setReturnDate] = useState("2025-05-04");
   const [returnTime, setReturnTime] = useState("19:30");
+  const [car, setCar] = useState([]);
 
   const handleDateChange = (e, setter) => {
     setter(e.target.value);
+  };
+
+  const handleSearchCar = async () => {
+    try {
+      const res = await post("cars/available", {
+        city: location,
+        pickupTime: `${pickupDate}T${pickupTime}:00`,
+        returnTime: `${returnDate}T${returnTime}:00`,
+        rentalType: "monthly",
+      });
+      if (res?.data) {
+        setCar(res?.data || []);
+        message.success("Tìm kiếm thành công!!!");
+      }
+    } catch (error) {
+      console.error(error);
+      message.error("Không tải được dữ liệu!!!");
+    }
   };
   return (
     <div>
@@ -64,10 +85,11 @@ const Rentalmonth = () => {
             />
           </div>
         </div>
-
-        <button className="search-button">Tìm kiếm xe</button>
+        <button className="search-button" onClick={handleSearchCar}>
+          Tìm kiếm xe
+        </button>
       </div>
-      <CarList />
+      <CarList cars={car} />
     </div>
   );
 };

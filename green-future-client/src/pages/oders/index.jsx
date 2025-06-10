@@ -25,15 +25,14 @@ const Oders = () => {
         }
         console.log("TOKEN:", token);
         const response = await axios.get(
-          `${import.meta.env.VITE_APP_URL_FE}/bookings/${userId}`,
+          `${import.meta.env.VITE_APP_URL_FE}/bookings/my-bookings/${userId}`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           }
         );
-        console.log("API DATA:", response.data);
-        setData(response?.data?.data ? [response.data.data] : []);
+        setData(response?.data?.data?.items || []);
       } catch (err) {
         console.error(err);
         message.error("Không lấy được dữ liệu!!!");
