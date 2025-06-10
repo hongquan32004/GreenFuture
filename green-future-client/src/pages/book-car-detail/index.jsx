@@ -2,7 +2,7 @@ import { message } from "antd";
 import "./style.scss";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Thumbs } from "swiper/modules";
 import "swiper/css";
@@ -15,11 +15,15 @@ import CanSo from "../../assets/icon16-detail-transmission.svg";
 import Ngoi from "../../assets/icon16-detail-airbag.svg";
 import Hot from "../../assets/icon16-detail-max_power.svg";
 import Banh from "../../assets/icon16-detail-wheel_drive.svg";
+import BookingModal from "../../components/bookingModal";
+import { post } from "../../utils/axios-http/axios-http";
 
 const BookCarDetail = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -34,6 +38,18 @@ const BookCarDetail = () => {
     };
     fetchData();
   }, []);
+  const onSubmit = async (data) => {
+    try {
+      const res = await post("bookings", data);
+      if (res) {
+        message.success("Đặt xe thành công!!!");
+        navigate("/thue-xe-tu-lai");
+      }
+    } catch (error) {
+      console.error(error);
+      message.error("Lỗi khi đặt xe!!!");
+    }
+  };
   return (
     <div className="gf-container" style={{ color: "black" }}>
       <div className="c-detail-box">
@@ -73,7 +89,12 @@ const BookCarDetail = () => {
           <div className="c-detail-box__row">
             <h1 className="c-detail-title">{data?.name}</h1>
             <div className="c-product-price">
-              {data?.basePricePerDay} <span>VNĐ/ngày</span>
+              {new Intl.NumberFormat("vi-VN", {
+                style: "currency",
+                currency: "VND",
+                maximumFractionDigits: 0,
+              }).format(data?.basePricePerDay)}
+              <span>/ngày</span>
             </div>
             <div className="mt-3">
               <div className="c-hint">Miễn phí sạc tới 31/12/2027</div>
@@ -163,7 +184,15 @@ const BookCarDetail = () => {
           </div>
           <div className="c-detail-box__row">
             <div className="c-detail-book">
-              <button className="btn">Đặt xe</button>
+              <button className="btn" onClick={() => setModalVisible(true)}>
+                Đặt xe
+              </button>
+              <BookingModal
+                visible={modalVisible}
+                onClose={() => setModalVisible(false)}
+                cars={data}
+                onSubmit={onSubmit}
+              />
               <p className="text-center">Nhận thông tin tư vấn</p>
             </div>
           </div>

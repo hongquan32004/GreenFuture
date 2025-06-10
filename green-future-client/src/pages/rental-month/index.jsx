@@ -1,21 +1,42 @@
 import React, { useState } from "react";
 import "./style.css";
 import CarList from "../../components/car-list";
+import { post } from "../../utils/axios-http/axios-http";
+import { message } from "antd";
 
 const Rentalmonth = () => {
   const [location, setLocation] = useState("Hà Nội");
   const [pickupDate, setPickupDate] = useState("2025-05-03");
   const [pickupTime, setPickupTime] = useState("19:30");
-  const [monthCount, setMonthCount] = useState(1);
-
+  const [returnDate, setReturnDate] = useState("2025-05-04");
+  const [returnTime, setReturnTime] = useState("19:30");
+  const [car, setCar] = useState([]);
 
   const handleDateChange = (e, setter) => {
     setter(e.target.value);
   };
+
+  const handleSearchCar = async () => {
+    try {
+      const res = await post("cars/available", {
+        city: location,
+        pickupTime: `${pickupDate}T${pickupTime}:00`,
+        returnTime: `${returnDate}T${returnTime}:00`,
+        rentalType: "monthly",
+      });
+      if (res?.data) {
+        setCar(res?.data || []);
+        message.success("Tìm kiếm thành công!!!");
+      }
+    } catch (error) {
+      console.error(error);
+      message.error("Không tải được dữ liệu!!!");
+    }
+  };
   return (
     <div>
-      <div className="search-form-m">
-        <div className="form-section-m">
+      <div className="search-form">
+        <div className="form-section">
           <h4>Tỉnh/Thành phố</h4>
           <select
             value={location}
@@ -36,31 +57,39 @@ const Rentalmonth = () => {
               type="date"
               value={pickupDate}
               onChange={(e) => handleDateChange(e, setPickupDate)}
-              className="date-input-m"
+              className="date-input"
             />
             <input
               type="time"
               value={pickupTime}
               onChange={(e) => setPickupTime(e.target.value)}
-              className="time-input-m"
+              className="time-input"
             />
           </div>
         </div>
 
-        <div className="form-description">
-          <h4>Số tháng</h4>
-          <input
-            type="number"
-            min="1"
-            value={monthCount}
-            onChange={(e) => setMonthCount(e.target.value)}
-            className="number-input"
-          />
+        <div className="form-section">
+          <h4>Ngày trả xe</h4>
+          <div className="datetime-inputs">
+            <input
+              type="date"
+              value={returnDate}
+              onChange={(e) => handleDateChange(e, setReturnDate)}
+              className="date-input"
+            />
+            <input
+              type="time"
+              value={returnTime}
+              onChange={(e) => setReturnTime(e.target.value)}
+              className="time-input"
+            />
+          </div>
         </div>
-
-        <button className="search-button">Tìm kiếm xe</button>
+        <button className="search-button" onClick={handleSearchCar}>
+          Tìm kiếm xe
+        </button>
       </div>
-      <CarList />
+      <CarList cars={car} />
     </div>
   );
 };

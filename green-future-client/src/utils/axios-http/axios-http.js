@@ -60,6 +60,14 @@ const get = async (path, params = {}) => {
         handleError(error);
     }
 };
+const getSearch = async (path, data) => {
+    try {
+        const response = await axiosInstance.get(`/${path}`, data);
+        return response.data;
+    } catch (error) {
+        handleError(error);
+    }
+};
 // Phương thức POST
 const post = async (path, data) => {
     try {
@@ -130,5 +138,6 @@ export {
     patch,
     put,
     patchForm,
-    deleteMethod
+    deleteMethod,
+    getSearch
 };
