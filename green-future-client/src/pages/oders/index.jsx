@@ -81,7 +81,8 @@ const Oders = () => {
         let color = "default";
         if (status === "completed") color = "green";
         else if (status === "pending") color = "orange";
-        else if (status === "cancelled") color = "red";
+        else if (status === "cancelled") color = " red";
+        else if (status === "active") color = "purple";
         return <Tag color={color}>{status?.toUpperCase()}</Tag>;
       },
     },
